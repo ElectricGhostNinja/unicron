@@ -1,0 +1,46 @@
+#+TITLE: My Doom Config
+
+* Modules
+:PROPERTIES:
+:header-args: :tangle init.el
+:END:
+
+#+begin_src elisp
+(doom! :completion
+       vertico
+
+       :ui
+       doom
+       doom-dashboard
+       modeline
+
+       :editor
+       (evil +everywhere)
+
+       :tools
+       magit
+
+       :lang
+       (org)
+       emacs-lisp)
+#+end_src
+
+* Personal Config
+:PROPERTIES:
+:header-args: :tangle config.el
+:END:
+
+#+begin_src elisp
+(setq user-full-name "ElectricGhostNinja"
+      user-mail-address "electricghostninja@gmail.com")
+(setq doom-theme 'doom-one)
+#+end_src
+
+* Extra Packages
+:PROPERTIES:
+:header-args: :tangle packages.el
+:END:
+
+#+begin_src elisp
+;; (package! some-package)
+#+end_src

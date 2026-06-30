@@ -1,0 +1,20 @@
+{
+  imports = [
+    ./boot.nix
+    ./locale.nix
+    ./networking.nix
+    ./audio.nix
+    ./printing.nix
+    ./flatpak.nix
+    ./desktop-plasma.nix
+    ./laptop.nix
+    ./shell-tools.nix
+    ./firefox.nix
+    ./unfree.nix
+    ./ssh.nix
+    ./fonts.nix
+    ./home-manager.nix
+    ./vpn.nix
+    ../../users/galvatron-account.nix
+  ];
+}
