@@ -22,7 +22,10 @@
 
        :lang
        (org)
-       emacs-lisp)
+       emacs-lisp
+
+       :email
+       mu4e)
 #+end_src
 
 * Personal Config
@@ -43,4 +46,60 @@
 
 #+begin_src elisp
 ;; (package! some-package)
+#+end_src
+
+* Email
+:PROPERTIES:
+:header-args: :tangle config.el
+:END:
+
+#+begin_src elisp
+(after! mu4e
+  (setq mu4e-maildir "~/Mail"
+        mu4e-get-mail-command "mbsync -a"
+        mu4e-update-interval nil
+        mu4e-change-filenames-when-moving t
+        mu4e-context-policy 'pick-first
+        mu4e-compose-context-policy 'ask-if-none)
+
+  (set-email-account! "personal"
+    '((mu4e-sent-folder       . "/personal/Sent")
+      (mu4e-drafts-folder     . "/personal/Drafts")
+      (mu4e-trash-folder      . "/personal/Trash")
+      (mu4e-refile-folder     . "/personal/Archive")
+      (smtpmail-smtp-server   . "smtp.gmail.com")
+      (smtpmail-smtp-service  . 587)
+      (user-mail-address      . "electricghostninja@gmail.com")
+      (user-full-name         . "ElectricGhostNinja"))
+    t) ; t = default context
+
+  (set-email-account! "work-email"
+    '((mu4e-sent-folder       . "/work-email/Sent")
+      (mu4e-drafts-folder     . "/work-email/Drafts")
+      (mu4e-trash-folder      . "/work-email/Trash")
+      (mu4e-refile-folder     . "/work-email/Archive")
+      (smtpmail-smtp-server   . "smtp.gmail.com")
+      (smtpmail-smtp-service  . 587)
+      (user-mail-address      . "doacholonu@gmail.com")
+      (user-full-name         . "Dominick Acholonu")))
+
+  (set-email-account! "social-email"
+    '((mu4e-sent-folder       . "/social-email/Sent")
+      (mu4e-drafts-folder     . "/social-email/Drafts")
+      (mu4e-trash-folder      . "/social-email/Trash")
+      (mu4e-refile-folder     . "/social-email/Archive")
+      (smtpmail-smtp-server   . "smtp.gmail.com")
+      (smtpmail-smtp-service  . 587)
+      (user-mail-address      . "capt.illuminate@gmail.com")
+      (user-full-name         . "Captain Illuminate")))
+
+  (set-email-account! "coding-email"
+    '((mu4e-sent-folder       . "/coding-email/Sent")
+      (mu4e-drafts-folder     . "/coding-email/Drafts")
+      (mu4e-trash-folder      . "/coding-email/Trash")
+      (mu4e-refile-folder     . "/coding-email/Archive")
+      (smtpmail-smtp-server   . "smtp.gmail.com")
+      (smtpmail-smtp-service  . 587)
+      (user-mail-address      . "idunkoncode@gmail.com")
+      (user-full-name         . "I Dunk on Code"))))
 #+end_src

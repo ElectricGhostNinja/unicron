@@ -15,6 +15,14 @@
 
         # your new lines go here, same format: name = "command";
         nrs = "sudo nixos-rebuild switch --flake ~/unicron#galvatron";
+
+        # push to individual remotes
+        ggh = "git push github";
+        ggl = "git push gitlab";
+        gcb = "git push codeberg";
+
+        # push to every remote configured on the current repo
+        gpa = "git remote | xargs -L1 git push";
       };
 
       initExtra = ''

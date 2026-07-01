@@ -10,5 +10,7 @@
     ./discord.nix
     ./qbittorrent.nix
     ./ktorrent.nix
+    ./mu4e.nix
+    ./opencode.nix
   ];
 }
